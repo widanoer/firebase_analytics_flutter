@@ -73,7 +73,6 @@ class _MyHomePageState extends State<MyHomePage> {
     await analytics.setUserId('some-user');
     setMessage('setUserId succeeded');
   }
-  
 
   Future<void> _testSetCurrentScreen() async {
     await analytics.setCurrentScreen(
@@ -312,48 +311,50 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Column(
-        children: <Widget>[
-          MaterialButton(
-            color: Colors.grey,
-            child: const Text('Test logEvent'),
-            onPressed: _sendAnalyticsEvent,
-          ),
-          MaterialButton(
-            color: Colors.green,
-            child: const Text('Test standard event types'),
-            onPressed: _testAllEventTypes,
-          ),
-          MaterialButton(
-            color: Colors.red,
-            child: const Text('Test setUserId'),
-            onPressed: _testSetUserId,
-          ),
-          MaterialButton(
-            color: Colors.green,
-            child: const Text('Test setCurrentScreen'),
-            onPressed: _testSetCurrentScreen,
-          ),
-          MaterialButton(
-            color: Colors.red,
-            child: const Text('Test setAnalyticsCollectionEnabled'),
-            onPressed: _testSetAnalyticsCollectionEnabled,
-          ),
-          MaterialButton(
-            color: Colors.green,
-            child: const Text('Test setSessionTimeoutDuration'),
-            onPressed: _testSetSessionTimeoutDuration,
-          ),
-          MaterialButton(
-            color: Colors.red,
-            child: const Text('Test setUserProperty'),
-            onPressed: _testSetUserProperty,
-          ),
-
-          MaterialButton(
+        appBar: AppBar(
+          title: Text(widget.title),
+        ),
+        body: Center(
+          child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              MaterialButton(
+                color: Colors.grey,
+                child: const Text('Test logEvent'),
+                onPressed: _sendAnalyticsEvent,
+              ),
+              MaterialButton(
+                color: Colors.green,
+                child: const Text('Test standard event types'),
+                onPressed: _testAllEventTypes,
+              ),
+              MaterialButton(
+                color: Colors.red,
+                child: const Text('Test setUserId'),
+                onPressed: _testSetUserId,
+              ),
+              MaterialButton(
+                color: Colors.green,
+                child: const Text('Test setCurrentScreen'),
+                onPressed: _testSetCurrentScreen,
+              ),
+              MaterialButton(
+                color: Colors.red,
+                child: const Text('Test setAnalyticsCollectionEnabled'),
+                onPressed: _testSetAnalyticsCollectionEnabled,
+              ),
+              MaterialButton(
+                color: Colors.green,
+                child: const Text('Test setSessionTimeoutDuration'),
+                onPressed: _testSetSessionTimeoutDuration,
+              ),
+              MaterialButton(
+                color: Colors.red,
+                child: const Text('Test setUserProperty'),
+                onPressed: _testSetUserProperty,
+              ),
+              MaterialButton(
                 color: Colors.green,
                 child: const Text('Test logEvent'),
                 onPressed: _sendAnalyticsEvent,
@@ -392,21 +393,21 @@ class _MyHomePageState extends State<MyHomePage> {
                 color: Colors.red,
                 child: const Text('Test addToChart'),
                 onPressed: _testAddToChart,
-                ),
-
-          Text(_message,
-              style: const TextStyle(color: Color.fromARGB(255, 0, 155, 0))),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-          child: const Icon(Icons.tab),
-          onPressed: () {
-            Navigator.of(context).push(MaterialPageRoute<TabsPage>(
-                settings: const RouteSettings(name: TabsPage.routeName),
-                builder: (BuildContext context) {
-                  return TabsPage(observer);
-                }));
-          }),
-    );
+              ),
+              Text(_message,
+                  style:
+                      const TextStyle(color: Color.fromARGB(255, 0, 155, 0))),
+            ],
+          ),
+          // floatingActionButton: FloatingActionButton(
+          //     child: const Icon(Icons.tab),
+          //     onPressed: () {
+          //       Navigator.of(context).push(MaterialPageRoute<TabsPage>(
+          //           settings: const RouteSettings(name: TabsPage.routeName),
+          //           builder: (BuildContext context) {
+          //             return TabsPage(observer);
+          //           }));
+          //     }),
+        )));
   }
 }
