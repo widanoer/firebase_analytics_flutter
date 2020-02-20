@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1080372277439",
+    "firebase_url": "https://latihan-4e108.firebaseio.com",
+    "project_id": "latihan-4e108",
+    "storage_bucket": "latihan-4e108.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1080372277439:android:f45b94283961c46122960a",
+        "android_client_info": {
+          "package_name": "com.example.latihan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1080372277439-sqbf7nveqmb36s11grt784evobn3rpjf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuA_5tlIlrekdtBHf23lb9OS5LmJTm8Q4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1080372277439-sqbf7nveqmb36s11grt784evobn3rpjf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
