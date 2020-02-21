@@ -94,7 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<void> _testSetUserProperty() async {
-    await analytics.setUserProperty(name: 'regular', value: 'indeed');
+    await analytics.setUserProperty(name: 'favorite_color', value: 'red');
     setMessage('setUserProperty succeeded');
   }
 
@@ -279,33 +279,98 @@ class _MyHomePageState extends State<MyHomePage> {
     setMessage('view item success');
   }
 
-  Future<void> _tesEventSearch() async {
+  Future<void> _login() async {
+    await analytics.logLogin();
+    setMessage('login success');
+  }
+
+  Future<void> _search() async {
     await analytics.logSearch(searchTerm: 'buku');
     setMessage('search item success');
   }
 
-  Future<void> _testSetUserProperty2() async {
-    await analytics.setUserProperty(name: 'type', value: 'username');
+  Future<void> _setUserProperty() async {
+    await analytics.setUserProperty(name: 'favorite_color', value: 'red');
     setMessage('setUserProperty succeeded');
   }
 
-  Future<void> _testSetUserId2() async {
-    await analytics.setUserId('widahasan');
+  Future<void> _setUserId() async {
+    await analytics.setUserId('abc123');
     setMessage('setUserId succeeded');
   }
 
-  Future<void> _testSelectContent() async {
-    await analytics.logSelectContent(contentType: 'book', itemId: '1234');
+  Future<void> _selectContent() async {
+    await analytics.logSelectContent(contentType: 'novel', itemId: '1234');
     setMessage('select content success');
   }
 
-  Future<void> _testAddToChart() async {
+  Future<void> _addToChart() async {
     await analytics.logAddToCart(
         itemId: '1234',
-        itemName: 'laptop',
-        itemCategory: 'elektronik',
+        itemName: 'majalah',
+        itemCategory: 'buku',
         quantity: 10);
     setMessage('add to chart success');
+  }
+
+  Future<void> _addPaymentInfo() async {
+    await analytics.logAddPaymentInfo();
+  }
+
+  Future<void> _purchaseItem() async {
+    await analytics.logEcommercePurchase(
+        currency: 'IDR', value: 100000, transactionId: '1234');
+  }
+
+  Future<void> _scenario1() async {
+    await analytics.logLogin();
+    await analytics.setUserId("0001");
+    await analytics.setUserProperty(name: 'favorite_color', value: 'red');
+    setMessage('Scnario 1 success');
+  }
+
+  Future<void> _scenario2() async {
+    await analytics.logLogin();
+    await analytics.setUserId("0002");
+    await analytics.setUserProperty(name: 'favorite_color', value: 'blue');
+    await analytics.logSearch(searchTerm: 'buku');
+    setMessage('Scnario 2 success');
+  }
+
+  Future<void> _scenario3() async {
+    await analytics.logLogin();
+    await analytics.setUserId("0003");
+    await analytics.setUserProperty(name: 'favorite_color', value: 'black');
+    await analytics.logSearch(searchTerm: 'buku');
+    await analytics.logSelectContent(contentType: 'novel', itemId: '1234');
+    setMessage('Scnario 3 success');
+  }
+
+  Future<void> _scenario4() async {
+    await analytics.logLogin();
+    await analytics.setUserId("0004");
+    await analytics.setUserProperty(name: 'favorite_color', value: 'pink');
+    await analytics.logSearch(searchTerm: 'buku');
+    await analytics.logSelectContent(contentType: 'novel', itemId: '1234');
+    await analytics.logAddToCart(
+        itemId: '123', itemName: 'novel 1', itemCategory: 'novel', quantity: 2);
+    setMessage('Scnario 4 success');
+  }
+
+  Future<void> _scenario5() async {
+    await analytics.logLogin();
+    await analytics.setUserId("0005");
+    await analytics.setUserProperty(name: 'favorite_color', value: 'blue');
+    await analytics.logSearch(searchTerm: 'laptop');
+    await analytics.logSelectContent(contentType: 'laptop', itemId: '12365');
+    await analytics.logAddToCart(
+        itemId: '012',
+        itemName: 'laptop asus',
+        itemCategory: 'elektronik',
+        quantity: 1);
+    await analytics.logEcommercePurchase(
+        currency: 'IDR', value: 8000000, transactionId: '1234');
+    setMessage('Scnario 5 success');
   }
 
   @override
@@ -315,7 +380,7 @@ class _MyHomePageState extends State<MyHomePage> {
           title: Text(widget.title),
         ),
         body: Center(
-          child: SingleChildScrollView(
+            child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
@@ -324,75 +389,115 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: const Text('Test logEvent'),
                 onPressed: _sendAnalyticsEvent,
               ),
+              // MaterialButton(
+              //   color: Colors.green,
+              //   child: const Text('Test standard event types'),
+              //   onPressed: _testAllEventTypes,
+              // ),
+              // MaterialButton(
+              //   color: Colors.red,
+              //   child: const Text('Test setUserId'),
+              //   onPressed: _testSetUserId,
+              // ),
+              // MaterialButton(
+              //   color: Colors.green,
+              //   child: const Text('Test setCurrentScreen'),
+              //   onPressed: _testSetCurrentScreen,
+              // ),
+              // MaterialButton(
+              //   color: Colors.red,
+              //   child: const Text('Test setAnalyticsCollectionEnabled'),
+              //   onPressed: _testSetAnalyticsCollectionEnabled,
+              // ),
+              // MaterialButton(
+              //   color: Colors.green,
+              //   child: const Text('Test setSessionTimeoutDuration'),
+              //   onPressed: _testSetSessionTimeoutDuration,
+              // ),
+              // MaterialButton(
+              //   color: Colors.red,
+              //   child: const Text('Test setUserProperty'),
+              //   onPressed: _testSetUserProperty,
+              // ),
+              // MaterialButton(
+              //   color: Colors.green,
+              //   child: const Text('Test logEvent'),
+              //   onPressed: _sendAnalyticsEvent,
+              // ),
+              // MaterialButton(
+              //   color: Colors.red,
+              //   child: const Text('Test Coba'),
+              //   onPressed: _testLogEvent,
+              // ),
+              // MaterialButton(
+              //   color: Colors.green,
+              //   child: const Text('Test view item'),
+              //   onPressed: _testEventTypesView,
+              // ),
               MaterialButton(
                 color: Colors.green,
-                child: const Text('Test standard event types'),
-                onPressed: _testAllEventTypes,
+                child: const Text('Login'),
+                onPressed: _login,
               ),
               MaterialButton(
                 color: Colors.red,
-                child: const Text('Test setUserId'),
-                onPressed: _testSetUserId,
+                child: const Text('Search item'),
+                onPressed: _search,
               ),
               MaterialButton(
                 color: Colors.green,
-                child: const Text('Test setCurrentScreen'),
-                onPressed: _testSetCurrentScreen,
+                child: const Text('Set User Property'),
+                onPressed: _setUserProperty,
               ),
               MaterialButton(
                 color: Colors.red,
-                child: const Text('Test setAnalyticsCollectionEnabled'),
-                onPressed: _testSetAnalyticsCollectionEnabled,
+                child: const Text('Set UserId'),
+                onPressed: _setUserId,
               ),
               MaterialButton(
                 color: Colors.green,
-                child: const Text('Test setSessionTimeoutDuration'),
-                onPressed: _testSetSessionTimeoutDuration,
+                child: const Text('Select Content'),
+                onPressed: _selectContent,
               ),
               MaterialButton(
                 color: Colors.red,
-                child: const Text('Test setUserProperty'),
-                onPressed: _testSetUserProperty,
+                child: const Text('Add To Chart'),
+                onPressed: _addToChart,
               ),
               MaterialButton(
                 color: Colors.green,
-                child: const Text('Test logEvent'),
-                onPressed: _sendAnalyticsEvent,
+                child: const Text('Add Payment Info'),
+                onPressed: _addPaymentInfo,
               ),
               MaterialButton(
                 color: Colors.red,
-                child: const Text('Test Coba'),
-                onPressed: _testLogEvent,
+                child: const Text('Purchase'),
+                onPressed: _purchaseItem,
               ),
               MaterialButton(
-                color: Colors.green,
-                child: const Text('Test view item'),
-                onPressed: _testEventTypesView,
-              ),
-              MaterialButton(
-                color: Colors.red,
-                child: const Text('Test search item'),
-                onPressed: _tesEventSearch,
-              ),
-              MaterialButton(
-                color: Colors.green,
-                child: const Text('Test setUserProperty2'),
-                onPressed: _testSetUserProperty2,
+                color: Colors.blue,
+                child: const Text('Skenario 1'),
+                onPressed: _scenario1,
               ),
               MaterialButton(
                 color: Colors.red,
-                child: const Text('Test setUserId2'),
-                onPressed: _testSetUserId2,
+                child: const Text('Skenario 2'),
+                onPressed: _scenario2,
               ),
               MaterialButton(
-                color: Colors.green,
-                child: const Text('Test selectContent'),
-                onPressed: _testSelectContent,
+                color: Colors.blue,
+                child: const Text('Skenario 3'),
+                onPressed: _scenario3,
               ),
               MaterialButton(
                 color: Colors.red,
-                child: const Text('Test addToChart'),
-                onPressed: _testAddToChart,
+                child: const Text('Skenario 4'),
+                onPressed: _scenario4,
+              ),
+              MaterialButton(
+                color: Colors.blue,
+                child: const Text('Skenario 5'),
+                onPressed: _scenario5,
               ),
               Text(_message,
                   style:
