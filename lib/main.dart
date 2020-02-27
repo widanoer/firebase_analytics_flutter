@@ -103,11 +103,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future<void> _addPaymentInfo() async {
     await analytics.logAddPaymentInfo();
+    setMessage('add payment success');
   }
 
   Future<void> _purchaseItem() async {
     await analytics.logEcommercePurchase(
         currency: 'IDR', value: 100000, transactionId: '1234');
+    setMessage('purchase success');
   }
 
   @override
