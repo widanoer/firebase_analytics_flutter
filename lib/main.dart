@@ -2,11 +2,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
-import 'tabs_page.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
+
 
 class MyApp extends StatelessWidget {
   static FirebaseAnalytics analytics = FirebaseAnalytics();
@@ -120,131 +118,61 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         body: Center(
           child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              MaterialButton(
-                color: Colors.green,
-                child: Text('Tes Event'),
-                onPressed: _testLogEvent,
-              ),
-              MaterialButton(
-                color: Colors.green,
-                child: Text('Login'),
-                onPressed: _login,
-              ),
-              MaterialButton(
-                color: Colors.green,
-                child: Text('Search item'),
-                onPressed: _search,
-              ),
-              MaterialButton(
-                color: Colors.green,
-                child: Text('Set User Property'),
-                onPressed: _setUserProperty,
-              ),
-              MaterialButton(
-                color: Colors.green,
-                child: Text('Set UserId'),
-                onPressed: _setUserId,
-              ),
-              MaterialButton(
-                color: Colors.green,
-                child: Text('Select Content'),
-                onPressed: _selectContent,
-              ),
-              MaterialButton(
-                color: Colors.green,
-                child: Text('Add To Chart'),
-                onPressed: _addToChart,
-              ),
-              MaterialButton(
-                color: Colors.green,
-                child: Text('Add Payment Info'),
-                onPressed: _addPaymentInfo,
-              ),
-              MaterialButton(
-                color: Colors.green,
-                child: Text('Purchase'),
-                onPressed: _purchaseItem,
-              ),
-              Text(_message,
-                  style:
-                      TextStyle(color: Color.fromARGB(255, 0, 155, 0))),
-            ],
-          ),
-          // floatingActionButton: FloatingActionButton(
-          //     child: const Icon(Icons.tab),
-          //     onPressed: () {
-          //       Navigator.of(context).push(MaterialPageRoute<TabsPage>(
-          //           settings: const RouteSettings(name: TabsPage.routeName),
-          //           builder: (BuildContext context) {
-          //             return TabsPage(observer);
-          //           }));
-          //     }),
-        )));
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                MaterialButton(
+                  color: Colors.green,
+                  child: Text('Tes Event'),
+                  onPressed: _testLogEvent,
+                ),
+                MaterialButton(
+                  color: Colors.green,
+                  child: Text('Login'),
+                  onPressed: _login,
+                ),
+                MaterialButton(
+                  color: Colors.green,
+                  child: Text('Search item'),
+                  onPressed: _search,
+                ),
+                MaterialButton(
+                  color: Colors.green,
+                  child: Text('Set User Property'),
+                  onPressed: _setUserProperty,
+                ),
+                MaterialButton(
+                  color: Colors.green,
+                  child: Text('Set UserId'),
+                  onPressed: _setUserId,
+                ),
+                MaterialButton(
+                  color: Colors.green,
+                  child: Text('Select Content'),
+                  onPressed: _selectContent,
+                ),
+                MaterialButton(
+                  color: Colors.green,
+                  child: Text('Add To Chart'),
+                  onPressed: _addToChart,
+                ),
+                MaterialButton(
+                  color: Colors.green,
+                  child: Text('Add Payment Info'),
+                  onPressed: _addPaymentInfo,
+                ),
+                MaterialButton(
+                  color: Colors.green,
+                  child: Text('Purchase'),
+                  onPressed: _purchaseItem,
+                ),
+                Text(_message,
+                    style:
+                        TextStyle(color: Color.fromARGB(255, 0, 155, 0))),
+              ],
+            ),
+          )
+      )
+    );
   }
 }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//         appBar: AppBar(
-//           title: Text(widget.title),
-//         ),
-//         body: GridView.count(
-//           primary: false,
-//           padding: const EdgeInsets.all(20),
-//           crossAxisSpacing: 10,
-//           mainAxisSpacing: 10,
-//           crossAxisCount: 2,
-//           children: <Widget>[
-//             MaterialButton(
-//               color: Colors.green,
-//               child: const Text('Tes Event'),
-//               onPressed: _testLogEvent,
-//               ),
-//             MaterialButton(
-//               color: Colors.green,
-//               child: const Text('Login'),
-//               onPressed: _login,
-//               ),
-//             MaterialButton(
-//               color: Colors.red,
-//               child: const Text('Search item'),
-//               onPressed: _search,
-//               ),
-//             MaterialButton(
-//               color: Colors.green,
-//               child: const Text('Set User Property'),
-//               onPressed: _setUserProperty,
-//               ),
-//             MaterialButton(
-//               color: Colors.red,
-//               child: const Text('Set UserId'),
-//               onPressed: _setUserId,
-//               ),
-//             MaterialButton(
-//               color: Colors.green,
-//               child: const Text('Select Content'),
-//               onPressed: _selectContent,
-//               ),
-//             MaterialButton(
-//               color: Colors.red,
-//               child: const Text('Add To Chart'),
-//               onPressed: _addToChart,
-//               ),
-//             MaterialButton(
-//               color: Colors.green,
-//               child: const Text('Add Payment Info'),
-//               onPressed: _addPaymentInfo,
-//               ),
-//             MaterialButton(
-//               color: Colors.red,
-//               child: const Text('Purchase'),
-//               onPressed: _purchaseItem,
-//               ),
-//           ],
-//         ));
-//   }
-// }
