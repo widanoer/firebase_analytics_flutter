@@ -4,6 +4,7 @@ This project integrate flutter with firebase for mobile apps analytic
 
 Google Analytics is a free app measurement solution that provides insight on app usage and user engagement.
 Analytics reports help you understand clearly how your users behave, which enables you to make informed decisions regarding app marketing and performance optimizations.
+
 Google Analytics collects usage and behavior data for your app. The SDK logs two primary types of information:
 - Events: What is happening in your app, such as user actions, system events, or errors.
 - User properties: Attributes you define to describe segments of your user base, such as language preference or geographic location.
@@ -42,8 +43,8 @@ FirebaseAnalyticsObserver observer = FirebaseAnalyticsObserver(analytics: analyt
 
 ## Function that listen to Widget 
 
-
 Future <void> _login() async {
+	
     await analytics.logLogin();
 }
 
@@ -51,6 +52,7 @@ Future <void> _login() async {
 ## In Widget 
 
 MaterialButton(
+
    color: Colors.green,
    child: Text('Login'),
    onPressed: _login,
