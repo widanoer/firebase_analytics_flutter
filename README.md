@@ -42,7 +42,7 @@ FirebaseAnalyticsObserver observer = FirebaseAnalyticsObserver(analytics: analyt
 ## Function that listen to Widget 
 
 
-Future<void> _login() async {
+Future <void> _login() async {
 	
     await analytics.logLogin();
 }
