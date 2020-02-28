@@ -29,30 +29,25 @@ https://console.firebase.google.com/
 
 ## Step 4: Add FlutterFire plugins
 - From the root directory of your Flutter app, open your pubspec.yaml file.
-
+```
 	firebase_core: ^0.4.0+9
 	firebase_analytics: ^5.0.2
-
+```
 ## Usage
 ``` flutter
 import 'package:firebase_analytics/firebase_analytics.dart';
 
 FirebaseAnalytics analytics = FirebaseAnalytics();
-
 FirebaseAnalyticsObserver observer = FirebaseAnalyticsObserver(analytics: analytics);
 
-## Function that listen to Widget 
-
-Future <void> _login() async {
-	
+# Function that listen to Widget 
+Future <void> _login() async {	
     await analytics.logLogin();
 }
 
 
-## In Widget 
-
+# In Widget 
 MaterialButton(
-
    color: Colors.green,
    child: Text('Login'),
    onPressed: _login,
