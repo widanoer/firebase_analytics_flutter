@@ -40,12 +40,16 @@ FirebaseAnalytics analytics = FirebaseAnalytics();
 FirebaseAnalyticsObserver observer = FirebaseAnalyticsObserver(analytics: analytics);
 
 ## Function that listen to Widget 
+
+
 Future<void> _login() async {
 	
     await analytics.logLogin();
 }
 
 ## In Widget 
+
+
 MaterialButton(
 
    color: Colors.green,
