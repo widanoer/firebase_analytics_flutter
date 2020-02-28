@@ -34,7 +34,7 @@ https://console.firebase.google.com/
 	firebase_analytics: ^5.0.2
 
 ## Usage
-flutter
+``` flutter
 import 'package:firebase_analytics/firebase_analytics.dart';
 
 FirebaseAnalytics analytics = FirebaseAnalytics();
@@ -58,6 +58,6 @@ MaterialButton(
    onPressed: _login,
 )
 
-
+```
 ## For More Documentation
 Please visit [Firebase Analytics](https://firebase.google.com/docs/analytics)
