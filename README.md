@@ -35,15 +35,16 @@ https://console.firebase.google.com/
 flutter
 import 'package:firebase_analytics/firebase_analytics.dart';
 
-FirebaseAnalytics analytics = FirebaseAnalytics(); 
+FirebaseAnalytics analytics = FirebaseAnalytics();
+
 FirebaseAnalyticsObserver observer = FirebaseAnalyticsObserver(analytics: analytics);
 
-# Function that listen to Widget 
+## Function that listen to Widget 
 Future<void> _login() async {
     await analytics.logLogin();
 }
 
-# In Widget 
+## In Widget 
 MaterialButton(
    color: Colors.green,
    child: Text('Login'),
@@ -51,5 +52,5 @@ MaterialButton(
 )
 
 
-## For Another Docummentation
+## For More Documentation
 Please visit [Firebase Analytics](https://firebase.google.com/docs/analytics)
