@@ -56,7 +56,7 @@ MaterialButton(
 
 ```
 
-## Extra Tip
+## Extra Tips
 If you want to see the events in Firebase Console quickly and reliably while debugging, use DebugView.
 
 To enable Analytics Debug mode on an Android device, execute the following command line:
