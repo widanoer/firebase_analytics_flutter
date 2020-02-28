@@ -41,11 +41,13 @@ FirebaseAnalyticsObserver observer = FirebaseAnalyticsObserver(analytics: analyt
 
 ## Function that listen to Widget 
 Future<void> _login() async {
+	
     await analytics.logLogin();
 }
 
 ## In Widget 
 MaterialButton(
+
    color: Colors.green,
    child: Text('Login'),
    onPressed: _login,
