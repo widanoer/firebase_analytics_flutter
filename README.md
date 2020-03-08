@@ -1,7 +1,5 @@
 # Firebase Analytics for Flutter Application
 
-This project integrate flutter with firebase for mobile apps analytic
-
 Google Analytics is a free app measurement solution that provides insight on app usage and user engagement.
 Analytics reports help you understand clearly how your users behave, which enables you to make informed decisions regarding app marketing and performance optimizations.
 
@@ -11,8 +9,8 @@ Google Analytics collects usage and behavior data for your app. The SDK logs two
 
 ## How to add Firebase Analytics to your Flutter App:
 
-## Step 1: Create a Firebase project 
-https://console.firebase.google.com/
+## Step 1: Create a Firebase project
+- Open [Firebase Console](https://console.firebase.google.com) 
 
 ## Step 2: Register your app with Firebase
 - In the center of the Firebase console's project overview page, click the Android icon to launch the setup workflow
